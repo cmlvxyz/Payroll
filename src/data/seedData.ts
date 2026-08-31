@@ -105,10 +105,9 @@ export const SEED_EMPLOYEES: Employee[] = [
   {
     id: 'EMP-003',
     employee_id: 'SF2-003',
-    first_name: 'Ricardo',
-    middle_name: 'Pascual',
-    last_name: 'De Jesus',
-    suffix: 'Jr.',
+    first_name: 'Sally',
+    middle_name: '',
+    last_name: 'Espinosa',
     employee_type: 'Official',
     position: 'Barangay Secretary / HR',
     basic_salary: 18500,
@@ -398,15 +397,15 @@ export const BIR_MONTHLY_TAX_TABLE: BirTaxBracket[] = [
 ];
 
 export const DEFAULT_SETTINGS: PayrollSettings = {
-  barangay_name: 'Barangay San Felipe II',
-  barangay_subtitle: 'City of Cavite, Province of Cavite, Republic of the Philippines',
-  barangay_address: 'Barangay Hall, J. Felipe Blvd., Brgy. San Felipe II, Cavite City 4100',
-  municipality: 'Cavite City',
-  province: 'Cavite',
+  barangay_name: 'Barangay SF II',
+  barangay_subtitle: 'City of Limay, Province of Bataan, Republic of the Philippines',
+  barangay_address: 'Brgy. St. Francis II, Limay Bataan 2103',
+  municipality: 'Limay',
+  province: 'Bataan',
   contact_number: '(046) 431-2890 / +63 917 111 2233',
   punong_barangay: 'Hon. Nestor Nabaunag',
   barangay_treasurer: 'Catherine D. Cinco',
-  barangay_secretary: 'Ricardo P. De Jesus Jr.',
+  barangay_secretary: 'Kirlly',
   hr_officer: 'Ricardo P. De Jesus Jr.',
   
   work_start_time: '08:00',

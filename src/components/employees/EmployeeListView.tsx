@@ -71,7 +71,7 @@ export const EmployeeListView: React.FC = () => {
       {/* Header Bar */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
         <div>
-          <div className="flex items-center gap-2">
+          <div className="relative -top-3 flex items-center gap-2">
             <h1 className="text-xl font-bold text-slate-900 dark:text-white">
               Barangay Workers Masterlist
             </h1>
@@ -80,7 +80,7 @@ export const EmployeeListView: React.FC = () => {
             </span>
           </div>
           <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
-            Barangay San Felipe II • Officials, Tanods, and Drivers
+            Barangay SF II • Officials, Tanods, and Drivers
           </p>
         </div>
 
@@ -103,7 +103,7 @@ export const EmployeeListView: React.FC = () => {
       </div>
 
       {/* Filter and Search Controls */}
-      <div className="flex flex-col sm:flex-row gap-3 bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+      <div className="relative -top-3 flex flex-col sm:flex-row gap-3 bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
         {/* Search */}
         <div className="relative flex-1">
           <Search className="w-4 h-4 absolute left-3 top-2.5 text-slate-400" />
@@ -143,7 +143,7 @@ export const EmployeeListView: React.FC = () => {
       </div>
 
       {/* Employees Table */}
-      <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
+      <div className="relative -top-4  bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs">
             <thead className="bg-slate-50 dark:bg-slate-800/80 text-slate-600 dark:text-slate-300 font-semibold border-b border-slate-200 dark:border-slate-800 uppercase tracking-wider text-[11px]">

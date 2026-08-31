@@ -38,10 +38,10 @@ export class PdfService {
     doc.setFontSize(10);
     doc.text('REPUBLIC OF THE PHILIPPINES', 105, 18, { align: 'center' });
     doc.setFontSize(14);
-    doc.text('BARANGAY SAN FELIPE II', 105, 25, { align: 'center' });
+    doc.text('BARANGAY SF II', 105, 25, { align: 'center' });
     doc.setFont('helvetica', 'normal');
     doc.setFontSize(8);
-    doc.text('Cavite City • Payroll & Timekeeping Management System', 105, 31, { align: 'center' });
+    doc.text('Limay • Payroll & Timekeeping Management System', 105, 31, { align: 'center' });
 
     // Subheader Banner
     doc.setFillColor(241, 245, 249);

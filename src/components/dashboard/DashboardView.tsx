@@ -54,7 +54,7 @@ export const DashboardView: React.FC = () => {
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm text-xs font-semibold mb-2 border border-white/20">
             <Shield className="w-3.5 h-3.5 text-amber-300" />
-            <span>Barangay San Felipe II • Cavite City</span>
+            <span>Barangay SF II • Limay, Bataan</span>
           </div>
           <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
             Payroll & Timekeeping Dashboard
