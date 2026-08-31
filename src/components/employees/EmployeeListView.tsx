@@ -67,7 +67,7 @@ export const EmployeeListView: React.FC = () => {
   };
 
   return (
-    <div className="space-y-5 animate-in fade-in duration-200">
+    <div className="relative -left-4 -top-5 space-y-5 animate-in fade-in duration-200">
       {/* Header Bar */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
         <div>

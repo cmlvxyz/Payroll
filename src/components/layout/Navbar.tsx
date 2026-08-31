@@ -66,7 +66,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onToggleMobileMenu, mobileMenuOp
 
           <div className="hidden lg:flex items-center gap-2 text-xs font-semibold text-slate-500 dark:text-slate-400">
             <span className="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span>Cavite City • CY 2026 Active Payroll System</span>
+            <span>Limay, Bataan • SF II 2026 Active Payroll System</span>
           </div>
         </div>
 
@@ -157,7 +157,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onToggleMobileMenu, mobileMenuOp
                     Statutory Reminders & Alerts
                   </h4>
                   <span className="text-[10px] text-blue-600 dark:text-blue-400 font-semibold">
-                    Brgy San Felipe II
+                    Brgy SF II
                   </span>
                 </div>
 
@@ -214,21 +214,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onToggleMobileMenu, mobileMenuOp
               <Moon className="w-5 h-5 text-slate-600 hover:-rotate-12 transition-transform" />
             )}
           </button>
-
-          {/* Current User Pill */}
-          <div className="hidden md:flex items-center gap-2 pl-2 border-l border-slate-200 dark:border-slate-800">
-            <div className="w-8 h-8 rounded-full bg-blue-700 text-white flex items-center justify-center font-bold text-xs shadow-inner">
-              {currentUser.name.slice(0, 2).toUpperCase()}
-            </div>
-            <div className="text-left leading-none">
-              <p className="text-xs font-bold text-slate-800 dark:text-slate-200 truncate max-w-[130px]">
-                {currentUser.name}
-              </p>
-              <span className="text-[10px] text-slate-500 dark:text-slate-400 font-medium">
-                {currentUser.role}
-              </span>
-            </div>
-          </div>
         </div>
       </div>
     </header>

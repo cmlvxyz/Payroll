@@ -85,7 +85,7 @@ export const PayrollProcessingView: React.FC = () => {
   const empMap = new Map<string, Employee>(employees.map((e) => [e.employee_id, e]));
 
   return (
-    <div className="space-y-6 animate-in fade-in duration-200">
+    <div className="relative -left-4 -top-5 space-y-6 animate-in fade-in duration-200">
       {/* Top Header Card */}
       <div className="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>

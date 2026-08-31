@@ -52,7 +52,7 @@ export const EmployeePortalView: React.FC = () => {
   };
 
   return (
-    <div className="space-y-6 animate-in fade-in duration-200">
+    <div className="relative -left-4 -top-5 space-y-6 animate-in fade-in duration-200">
       {/* Header Banner */}
       <div className="bg-gradient-to-r from-blue-700 via-indigo-800 to-slate-900 rounded-2xl p-6 text-white shadow-lg shadow-blue-900/20 flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div className="flex items-center gap-4">

@@ -48,3 +48,12 @@
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(100, 116, 139, 0.6);
 }
+
+/* Hide scrollbar for the attendance table while keeping scroll functionality */
+.attendance-scroll {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+.attendance-scroll::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}

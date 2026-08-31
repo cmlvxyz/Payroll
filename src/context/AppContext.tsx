@@ -15,7 +15,6 @@ import {
   User,
   UserRole,
   PayrollSettings,
-  PayrollStatus,
 } from '../types';
 import {
   SEED_EMPLOYEES,
@@ -125,7 +124,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   // View state
   const [currentView, setCurrentView] = useState<AppView>('dashboard');
   const [selectedEmployeeId, setSelectedEmployeeId] = useState<string | null>('SF2-001');
-  const [selectedPayrollRunId, setSelectedPayrollRunId] = useState<string | null>('PR-2026-09-1');
+  const [selectedPayrollRunId, setSelectedPayrollRunId] = useState<string | null>(null);
 
   // Users state
   const [users, setUsers] = useState<User[]>(() => {
@@ -133,7 +132,16 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     return saved ? JSON.parse(saved) : SEED_USERS;
   });
 
-  const [currentUser, setCurrentUser] = useState<User>(() => users[0] || SEED_USERS[0]);
+  const [currentUser, setCurrentUser] = useState<User>(() => {
+    // FIX: Ensure currentUser is always from the 'users' state, not stale localStorage.
+    // If a saved user is found, use it; otherwise, fallback to the first user in the 'users' array.
+    const savedUser = localStorage.getItem('sf2_current_user');
+    if (savedUser) {
+      const parsedUser: User = JSON.parse(savedUser);
+      return parsedUser;
+    }
+    return users[0] || SEED_USERS[0];
+  });
 
   // Employees state
   const [employees, setEmployees] = useState<Employee[]>(() => {
@@ -159,49 +167,14 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     return saved ? JSON.parse(saved) : DEFAULT_SETTINGS;
   });
 
-  // Initial Seed Payroll Run (September 1-15, 2026)
-  const initialRunId = 'PR-2026-09-1';
-  const initialDetails: PayrollDetail[] = SEED_EMPLOYEES.map((emp) =>
-    PayrollCalculationService.calculateEmployeePayroll(
-      emp,
-      initialRunId,
-      generateSeedAttendance(),
-      SEED_LOANS,
-      DEFAULT_SETTINGS,
-      1
-    )
-  );
-
-  const initialRun: PayrollRun = {
-    id: initialRunId,
-    payroll_run_id: initialRunId,
-    period_start: '2026-09-01',
-    period_end: '2026-09-15',
-    payroll_month: 'September',
-    payroll_year: 2026,
-    cutoff_number: 1,
-    status: 'Finance Approved',
-    total_gross: initialDetails.reduce((s, r) => s + r.gross_pay, 0),
-    total_deductions: initialDetails.reduce((s, r) => s + r.total_deductions, 0),
-    total_net: initialDetails.reduce((s, r) => s + r.net_pay, 0),
-    total_employer_cost: initialDetails.reduce((s, r) => s + r.total_employer_contributions, 0),
-    employee_count: initialDetails.length,
-    processed_by: 'Ricardo De Jesus (HR)',
-    processed_at: '2026-09-15 17:30',
-    approved_by_hr: 'Ricardo De Jesus (HR)',
-    approved_at_hr: '2026-09-15 17:45',
-    approved_by_finance: 'Elena Santos-Mendoza (Finance)',
-    approved_at_finance: '2026-09-16 09:10',
-  };
-
   const [payrollRuns, setPayrollRuns] = useState<PayrollRun[]>(() => {
     const saved = localStorage.getItem('sf2_payroll_runs');
-    return saved ? JSON.parse(saved) : [initialRun];
+    return saved ? JSON.parse(saved) : [];
   });
 
   const [payrollDetails, setPayrollDetails] = useState<PayrollDetail[]>(() => {
     const saved = localStorage.getItem('sf2_payroll_details');
-    return saved ? JSON.parse(saved) : initialDetails;
+    return saved ? JSON.parse(saved) : [];
   });
 
   // Audit Logs
@@ -236,7 +209,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       {
         id: 'LOG-003',
         user_id: 'USR-003',
-        user_name: 'Elena Santos-Mendoza (Finance)',
+        user_name: 'Catherine D. Cinco (Finance)',
         user_role: 'FINANCE',
         action: 'Finance Approved Payroll Run PR-2026-09-1',
         module: 'Approval',
@@ -260,6 +233,11 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   useEffect(() => {
     localStorage.setItem('sf2_users', JSON.stringify(users));
   }, [users]);
+  
+  useEffect(() => {
+    localStorage.setItem('sf2_current_user', JSON.stringify(currentUser));
+  }, [currentUser]);
+
   useEffect(() => {
     localStorage.setItem('sf2_employees', JSON.stringify(employees));
   }, [employees]);
@@ -588,14 +566,14 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const resetToDemoData = () => {
     localStorage.clear();
     setEmployees(SEED_EMPLOYEES);
-    setAttendanceRecords(generateSeedAttendance());
+    setAttendanceRecords([]);
     setLoans(SEED_LOANS);
-    setPayrollRuns([initialRun]);
-    setPayrollDetails(initialDetails);
+    setPayrollRuns([]);
+    setPayrollDetails([]);
     setSettings(DEFAULT_SETTINGS);
     setUsers(SEED_USERS);
     setCurrentUser(SEED_USERS[0]);
-    showToast('Reset to pristine Barangay San Felipe II demo data.');
+    showToast('Reset to pristine Barangay San Felipe II data.');
   };
 
   return (

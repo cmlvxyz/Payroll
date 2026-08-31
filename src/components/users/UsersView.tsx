@@ -23,7 +23,7 @@ export const UsersView: React.FC = () => {
   }[] = [
     {
       role: 'ADMIN',
-      name: 'Hon. Juan Dela Cruz (Punong Barangay)',
+      name: 'Hon. Nestor Nabaunag (Punong Barangay)',
       email: 'captain@sanfelipe2.gov.ph',
       description: 'Executive oversight, statutory configuration, final sign-off and audit logs.',
       permissions: [
@@ -49,7 +49,7 @@ export const UsersView: React.FC = () => {
     },
     {
       role: 'FINANCE',
-      name: 'Ricardo Reyes (Barangay Treasurer)',
+      name: 'Catherine D. Cinco (Barangay Treasurer)',
       email: 'treasurer@sanfelipe2.gov.ph',
       description: 'Fund disbursement, statutory contribution schedules (SSS, PHIC, HDMF, BIR), and bank payouts.',
       permissions: [
@@ -75,7 +75,7 @@ export const UsersView: React.FC = () => {
   ];
 
   return (
-    <div className="space-y-6 animate-in fade-in duration-200">
+    <div className="relative -left-4 -top-5 space-y-6 animate-in fade-in duration-200">
       {/* Header */}
       <div className="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>

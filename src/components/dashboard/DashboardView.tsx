@@ -17,6 +17,7 @@ import {
 } from 'lucide-react';
 import { useApp } from '../../context/AppContext';
 import { StatusBadge } from '../common/Badge';
+import { WorkflowGuide } from '../common/WorkflowGuide';
 
 export const DashboardView: React.FC = () => {
   const {
@@ -47,7 +48,7 @@ export const DashboardView: React.FC = () => {
   const attendanceRate = totalAttendanceEntries > 0 ? Math.round((presentCount / totalAttendanceEntries) * 100) : 100;
 
   return (
-    <div className="space-y-6 animate-in fade-in duration-300">
+    <div className="relative -left-4 -top-5 space-y-6 animate-in fade-in duration-300">
       {/* Welcome Banner */}
       <div className="bg-gradient-to-r from-blue-700 via-blue-800 to-indigo-900 rounded-2xl p-6 text-white shadow-lg shadow-blue-900/20 flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
@@ -80,6 +81,9 @@ export const DashboardView: React.FC = () => {
           </button>
         </div>
       </div>
+
+      {/* Step-by-Step Workflow Guide */}
+      <WorkflowGuide />
 
       {/* Summary Stat Cards Grid */}
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3.5 sm:gap-4">

@@ -54,7 +54,7 @@ export const ReportsView: React.FC = () => {
   const totalNet = activeDetails.reduce((s, d) => s + d.net_pay, 0);
 
   return (
-    <div className="space-y-6 animate-in fade-in duration-200">
+    <div className="relative -left-4 -top-5 space-y-6 animate-in fade-in duration-200">
       {/* Header */}
       <div className="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>

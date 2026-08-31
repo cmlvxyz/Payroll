@@ -33,7 +33,7 @@ export const SettingsView: React.FC = () => {
   };
 
   return (
-    <div className="space-y-6 animate-in fade-in duration-200">
+    <div className="relative -left-4 -top-5 space-y-6 animate-in fade-in duration-200">
       {/* Header */}
       <div className="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
@@ -80,7 +80,7 @@ export const SettingsView: React.FC = () => {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div>
               <label className="block font-bold text-slate-700 dark:text-slate-300 mb-1">
-                Barangay Name *
+                Barangay Name
               </label>
               <input
                 type="text"
@@ -92,7 +92,7 @@ export const SettingsView: React.FC = () => {
             </div>
             <div>
               <label className="block font-bold text-slate-700 dark:text-slate-300 mb-1">
-                City / Municipality *
+                City / Municipality
               </label>
               <input
                 type="text"
@@ -104,7 +104,7 @@ export const SettingsView: React.FC = () => {
             </div>
             <div>
               <label className="block font-bold text-slate-700 dark:text-slate-300 mb-1">
-                Province *
+                Province
               </label>
               <input
                 type="text"
@@ -119,7 +119,7 @@ export const SettingsView: React.FC = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 border-t border-slate-100 dark:border-slate-800 pt-3">
             <div>
               <label className="block font-bold text-slate-700 dark:text-slate-300 mb-1">
-                Punong Barangay (Captain Signatory) *
+                Punong Barangay (Captain Signatory)
               </label>
               <input
                 type="text"
@@ -132,7 +132,7 @@ export const SettingsView: React.FC = () => {
             </div>
             <div>
               <label className="block font-bold text-slate-700 dark:text-slate-300 mb-1">
-                Barangay Treasurer (Finance Signatory) *
+                Barangay Treasurer (Finance Signatory)
               </label>
               <input
                 type="text"

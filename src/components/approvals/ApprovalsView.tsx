@@ -20,7 +20,7 @@ export const ApprovalsView: React.FC = () => {
     currentUser,
     hrApprovePayroll,
     financeApprovePayroll,
-    markPayrollPaid,
+    markAsPaid, // FIX: Changed from 'markPayrollPaid' to 'markAsPaid'
     reopenPayroll,
     setCurrentView,
     setSelectedPayrollRunId,
@@ -38,7 +38,7 @@ export const ApprovalsView: React.FC = () => {
   };
 
   return (
-    <div className="space-y-6 animate-in fade-in duration-200">
+    <div className="relative -left-4 -top-5 space-y-6 animate-in fade-in duration-200">
       {/* Header */}
       <div className="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
@@ -185,17 +185,19 @@ export const ApprovalsView: React.FC = () => {
               <div className="space-y-1">
                 <div className="flex items-center gap-2">
                   <span className="font-bold text-slate-700 dark:text-slate-300">Approval Audit Trail:</span>
-                  {r.hr_approved_at ? (
+                  {/* FIX: Changed 'hr_approved_at' to 'approved_at_hr' and 'hr_approved_by' to 'approved_by_hr' */}
+                  {r.approved_at_hr ? (
                     <span className="text-emerald-600 font-semibold flex items-center gap-1">
-                      <CheckCircle2 className="w-3.5 h-3.5" /> HR Approved ({r.hr_approved_by} on {r.hr_approved_at.slice(0, 10)})
+                      <CheckCircle2 className="w-3.5 h-3.5" /> HR Approved ({r.approved_by_hr} on {r.approved_at_hr.slice(0, 10)})
                     </span>
                   ) : (
                     <span className="text-slate-400">Pending HR Approval</span>
                   )}
                 </div>
-                {r.finance_approved_at && (
+                {/* FIX: Changed 'finance_approved_at' to 'approved_at_finance' */}
+                {r.approved_at_finance && (
                   <div className="flex items-center gap-2 text-emerald-600 font-semibold">
-                    <CheckCircle2 className="w-3.5 h-3.5" /> Finance Approved ({r.finance_approved_by} on {r.finance_approved_at.slice(0, 10)})
+                    <CheckCircle2 className="w-3.5 h-3.5" /> Finance Approved ({r.approved_by_finance} on {r.approved_at_finance.slice(0, 10)})
                   </div>
                 )}
               </div>
@@ -222,7 +224,7 @@ export const ApprovalsView: React.FC = () => {
 
                 {r.status === 'Finance Approved' && (
                   <button
-                    onClick={() => markPayrollPaid(r.id)}
+                    onClick={() => markAsPaid(r.id)} /* FIX: Changed 'markPayrollPaid' to 'markAsPaid' */
                     className="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold shadow-sm"
                   >
                     Mark as Paid / Disbursed
