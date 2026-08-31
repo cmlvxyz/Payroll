@@ -1,0 +1,6 @@
+{
+  "name": "SF II Barangay Payroll Management System",
+  "description": "Barangay San Felipe II – Payroll & Timekeeping System for Barangay Officials, Tanods, and Drivers with Philippine attendance tracking, government contribution deductions (SSS, PhilHealth, Pag-IBIG, BIR tax), approvals, and payslips.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
